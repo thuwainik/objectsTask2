@@ -65,7 +65,7 @@ function getStudentName(student) {
   // Your code here
   return student.name;
 }
-console.log(getStudentName(students[0]));
+// console.log(getStudentName(students[0]));
 
 /**********
     Question 2:
@@ -81,7 +81,7 @@ function getCourse(student, courseIndex) {
   // Your code here
   return student.courses[courseIndex];
 }
-console.log(getCourse(students[4], 2));
+// console.log(getCourse(students[4], 2));
 
 /**********
     Question 3:
@@ -105,7 +105,7 @@ function addCourseToStudent(student, course) {
   return student;
 }
 
-console.log(addCourseToStudent(students[7], "Physics"));
+// console.log(addCourseToStudent(students[7], "Physics"));
 
 /**********
     Question 4:
@@ -119,7 +119,7 @@ function countCourses(student) {
   // Your code here
   return student.courses.length;
 }
-console.log(countCourses(students[1]));
+// console.log(countCourses(students[1]));
 
 /**********
     Question 5: 🌶️🌶️
@@ -137,8 +137,9 @@ console.log(countCourses(students[1]));
     **********/
 function listAllCourses(students) {
   // Your code here
-  const newArray = students.map((e) => {
-    return e.courses;
+  let newArray = [];
+  students.forEach((e) => {
+    newArray.push(...e.courses.filter((e) => !newArray.includes(e)));
   });
   return newArray;
 }
@@ -161,7 +162,7 @@ function removeCourseFromStudent(student, course) {
   student.courses = student.courses.filter((e) => e != course);
   return student;
 }
-console.log(removeCourseFromStudent(students[6], "Science"));
+// console.log(removeCourseFromStudent(students[6], "Science"));
 
 /**********
     Question 7:
@@ -175,12 +176,10 @@ console.log(removeCourseFromStudent(students[6], "Science"));
 
 function findStudentById(studentId, students) {
   // Your code here
-  return students.find((e) => {
-    return e.id == studentId;
-  });
+  return students.find((e) => e.id == studentId);
 }
 
-console.log(findStudentById(10, students));
+// console.log(findStudentById(10, students));
 
 /**********
     Question 8: 🌶️🌶️🌶️
@@ -208,6 +207,8 @@ console.log(findStudentById(10, students));
 
 function getStudentsByCourse(course, students) {
   // Your code here
+  const newArray = students.filter((e) => e.courses.includes(course));
+  return newArray;
 }
 
-// console.log(getStudentsByCourse("Music",students));
+// console.log(getStudentsByCourse("Music", students));
