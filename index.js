@@ -139,11 +139,11 @@ function listAllCourses(students) {
   // Your code here
   let newArray = [];
   students.forEach((e) => {
-    newArray.push(...e.courses.filter((e) => !newArray.includes(e)));
+    newArray.push(e.courses.filter((x) => !newArray.includes(x)));
   });
   return newArray;
 }
-// console.log(listAllCourses(students));
+console.log(listAllCourses(students));
 
 /**********
     Question 6:
