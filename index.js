@@ -139,7 +139,7 @@ function listAllCourses(students) {
   // Your code here
   let newArray = [];
   students.forEach((e) => {
-    newArray.push(e.courses.filter((x) => !newArray.includes(x)));
+    newArray.push(...e.courses.filter((x) => !newArray.includes(x)));
   });
   return newArray;
 }
@@ -207,8 +207,7 @@ function findStudentById(studentId, students) {
 
 function getStudentsByCourse(course, students) {
   // Your code here
-  const newArray = students.filter((e) => e.courses.includes(course));
-  return newArray;
+  return students.filter((e) => e.courses.includes(course));
 }
 
-// console.log(getStudentsByCourse("Music", students));
+console.log(getStudentsByCourse("Music", students));
